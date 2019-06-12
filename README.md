@@ -6,7 +6,7 @@ MatlabRenderer is an offscreen renderer written entirely in pure Matlab with no 
 
 ## Mex files
 
-Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for much faster performance. This option is chosen by setting renderparams.usemex = true.
+Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true.
 
 ## Alternatives
 
