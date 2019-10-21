@@ -26,6 +26,8 @@ renderparams.texmap = im2double(imread('data/StanfordBunny.jpg'));
 
 The function **MR_render_mesh** is essentially a wrapper to all of the underlying functions, executing the full rendering pipeline. You may want to edit aspects of this, for example to handle multiple light sources. If you want to introduce alternate reflectance models, you should edit **MR_render_buffers**.
 
+Consistent with Matlab, the MatlabRenderer uses a coordinate system in which the top left pixel centre has coordinates (1,1). Positive X is right, positive Y is down and positive Z is into the screen.
+
 ## Mex files
 
 Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true. If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use renderparams.usemex = true with your edited version.
