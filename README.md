@@ -28,6 +28,18 @@ The function **MR_render_mesh** is essentially a wrapper to all of the underlyin
 
 Consistent with Matlab, the MatlabRenderer uses a coordinate system in which the top left pixel centre has coordinates (1,1). Positive X is right, positive Y is down and positive Z is into the screen.
 
+## Normal map versus per vertex normals
+
+If you don't specify anything about surface normals then the default is to compute per-vertex normals and use these. You can alternatively specify your own per-vertex normals or you can use a UV space normal map. The variable names are the same in either case so be careful to avoid confusion. 
+
+### Per-vertex normals
+
+If you specify **renderparams.normalMode = 'perVertexNormals'** then **renderparams.VN** should have size n x 3 (where n is not necessarily the same as the number of vertices) and contain surface normal vectors. **renderparams.FN** is a triangulation that indexes into **renderparams.VN** and could be the same as the mesh triangulation. 
+
+### Normal mapping
+
+If you specify **renderparams.normalMode = 'normalMap'** then **renderparams.VN** should have size n x 2 (where n is not necessarily the same as the number of vertices) and contain 2D UV coordinates. You must also supply a normal map **renderparams.normalmap** of size h x w x 3 containing the normal map in UV space. **renderparams.FN** is a triangulation that indexes into **renderparams.VN** and could be the same as the mesh triangulation or the texture coordinate triangulation.
+
 ## Mex files
 
 Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true. If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use renderparams.usemex = true with your edited version.
