@@ -24,6 +24,8 @@ renderparams.textureMode = 'useTextureMap';
 renderparams.texmap = im2double(imread('data/StanfordBunny.jpg'));
 ```
 
+![Stanford bunny rendering with texture mapping](/example2.jpg?raw=true "Stanford bunny rendering with texture mapping")
+
 **MR_render_mesh** returns many other useful things including per vertex visibility, screen space depth map, normal map, shadow map and texture map.
 
 ## Citation
