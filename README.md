@@ -11,7 +11,11 @@ render = MR_render_mesh(obj.F,obj.V,cameraparams,renderparams);
 figure; imshow(render)
 ```
 
-This will render the Stanford bunny with some default camera and rendering parameters. For UV texture mapping, insert the following before the call to **MR_render_mesh**:
+This will render the Stanford bunny with some default camera and rendering parameters:
+
+![Stanford bunny rendering with default parameters](/example1.jpg?raw=true "Stanford bunny rendering with default parameters")
+
+For UV texture mapping, insert the following before the call to **MR_render_mesh**:
 
 ```matlab
 renderparams.VT = obj.VT;
