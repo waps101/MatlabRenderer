@@ -20,6 +20,24 @@ renderparams.textureMode = 'useTextureMap';
 renderparams.texmap = im2double(imread('data/StanfordBunny.jpg'));
 ```
 
+## Citation
+
+If you use this renderer in your research, please cite the following paper for which it was developed:
+
+A. Bas and W. A. P. Smith. "What Does 2D Geometric Information Really Tell Us About 3D Face Shape?" International Journal of Computer Vision, 127(10):1455-1473, 2019.
+
+Bibtex:
+
+    @article{bas2019what,
+      title={What Does {2D} Geometric Information Really Tell Us About {3D} Face Shape?},
+      author={Bas, Anil and Smith, William A. P.},
+      journal={International Journal of Computer Vision},
+      volume={127},
+      number={10},
+      pages={1455--1473},
+      year={2019}
+    }
+
 ## Overview
 
 **MR_rasterise_mesh** does the bulk of the work. This function performs z-buffering on the projected mesh and returns a face buffer (triangle index per pixel) and a weight buffer (barycentric weight for three triangle vertices per pixel). From these two buffers, any per-vertex or UV space quantity can be interpolated to produce a screen space value. This is exactly what **MR_compute_buffer_per_vertex** does (for per-vertex quantities) and **MR_compute_buffer_map** does (for UV mapped quantities).
