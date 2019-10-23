@@ -20,6 +20,8 @@ renderparams.textureMode = 'useTextureMap';
 renderparams.texmap = im2double(imread('data/StanfordBunny.jpg'));
 ```
 
+**MR_render_mesh** returns many other useful things including per vertex visibility, screen space depth map, normal map, shadow map and texture map.
+
 ## Citation
 
 If you use this renderer in your research, please cite the following paper for which it was developed:
@@ -44,7 +46,11 @@ Bibtex:
 
 The function **MR_render_mesh** is essentially a wrapper to all of the underlying functions, executing the full rendering pipeline. You may want to edit aspects of this, for example to handle multiple light sources. If you want to introduce alternate reflectance models, you should edit **MR_render_buffers**.
 
-Consistent with Matlab, the MatlabRenderer uses a coordinate system in which the top left pixel centre has coordinates (1,1). Positive X is right, positive Y is down and positive Z is into the screen.
+Consistent with Matlab, the MatlabRenderer uses a coordinate system in which the top left pixel centre has coordinates (1,1). Positive X is right, positive Y is down and positive Z is into the screen. This means that if up in your mesh coordinate system coincides with the positive Y axis, it will appear upside down in the image. The **MR_default_params** function has an optional third argument which, if set true (default), applies a 180 degree rotation about the X axis to orient the mesh the right way up. If you use default parameters and find your mesh is upside down, pass false as the third parameter to **MR_default_params**.
+
+## Limitations
+
+Currently only supports point light source (local or distant), Blinn-Phong reflectance and scaled orthographic/perspective/perspective-with-distortion camera models. Since everything is written in pure matlab, it would be easy to modify the code to improve upon any of these.
 
 ## Normal map versus per vertex normals
 
