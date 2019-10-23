@@ -1,6 +1,6 @@
 # MatlabRenderer
 
-MatlabRenderer is an offscreen renderer written entirely in pure Matlab with no dependencies. It is based on deferred shading, so provides a rasteriser based on z-buffering. It supports texture/normal mapping, shadowing, visibility and orthographic/perspective/perspective+distortion camera models.
+MatlabRenderer is an offscreen renderer written entirely in pure Matlab with no dependencies. It is based on deferred shading, so provides a rasteriser based on z-buffering. It supports texture/normal mapping, shadowing, visibility and orthographic/perspective/perspective+distortion camera models. It is CPU based and hence not fast (around 0.2s to render the Stanford bunny images below on my MacBook Pro) but provides features and control not available with the 3D visualisation tools in Matlab, most notably texture mapping, total control over camera parameters and shadow mapping. Being entirely written in Matlab, it is very hackable if you wish to add your own features.
 
 ## Basic usage
 
@@ -72,7 +72,7 @@ If you specify **renderparams.normalMode = 'normalMap'** then **renderparams.VN*
 
 ## Mex files
 
-Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true. If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use renderparams.usemex = true with your edited version.
+Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true (default). If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use renderparams.usemex = true with your edited version.
 
 ## Alternatives
 
