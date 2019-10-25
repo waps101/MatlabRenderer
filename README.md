@@ -72,7 +72,7 @@ If you specify **renderparams.normalMode = 'normalMap'** then **renderparams.VN*
 
 ## Mex files
 
-Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting renderparams.usemex = true (default). If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use renderparams.usemex = true with your edited version.
+Although written entirely in Matlab, it is still possible to compile to mex using Matlab's codegen for modest speed improvement. I have already done this for all key functions on Windows 64, Mac OS X and Linux. So, if you do not wish to edit the matlab source, you can safely use the mex files for faster performance. This option is chosen by setting **renderparams.usemex = true** (default). If you edit any of the functions with precompiled mex files, remember to recompile with codegen if you want to use **renderparams.usemex = true** with your edited version.
 
 ## Alternatives
 
