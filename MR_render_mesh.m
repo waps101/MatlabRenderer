@@ -127,10 +127,12 @@ if renderparams.shadows
     Vxy_light = Vxy_light.*scale;
     Vxy_light(:,1) = Vxy_light(:,1) - min(Vxy_light(:,1));
     Vxy_light(:,2) = Vxy_light(:,2) - min(Vxy_light(:,2));
+    lightparams.w = ceil(max(Vxy_light(:,1)));
+    lightparams.h = ceil(max(Vxy_light(:,2)));
     if renderparams.useMex
-        [zbuffer_light,fbuffer_light,~,Vz_light] = MR_rasterise_mesh_mex(F, Vlight, Vxy_light, cameraparams.w, cameraparams.h);
+        [zbuffer_light,fbuffer_light,~,Vz_light] = MR_rasterise_mesh_mex(F, Vlight, Vxy_light, lightparams.w, lightparams.h);
     else
-        [zbuffer_light,fbuffer_light,~,Vz_light] = MR_rasterise_mesh(F, Vlight, Vxy_light, cameraparams.w, cameraparams.h);
+        [zbuffer_light,fbuffer_light,~,Vz_light] = MR_rasterise_mesh(F, Vlight, Vxy_light, lightparams.w, lightparams.h);
     end
     shadowPerVertex = MR_vertex_visibility(Vxy_light,Vz_light,zbuffer_light,fbuffer_light,F);
     if renderparams.useMex
